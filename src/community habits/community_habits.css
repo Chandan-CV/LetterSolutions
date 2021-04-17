@@ -1,0 +1,85 @@
+.community-header {
+  width: 100%;
+}
+.add-button {
+  width: 80%;
+  min-height: 120px;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: crimson;
+  border-radius: 20px;
+  color: wheat;
+}
+
+.habitCard {
+  width: 80%;
+  min-height: 120px;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #37ecd4;
+  border-radius: 20px;
+}
+.habitName {
+  font-size: 22pt;
+  padding-left: 20px;
+}
+.userName {
+  font-size: 18pt;
+  padding-left: 20px;
+}
+.table {
+  font-size: 18pt;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.habit-header {
+  font-size: 24px;
+  font-weight: bold;
+}
+.habit-body {
+  font-size: 18px;
+}
+
+.selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.selection-title {
+  width: 75%;
+  height: 50px;
+  margin: 30px 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  background-color: rgb(50, 61, 219);
+  border-radius: 20px;
+}
+
+.dialogContent{
+    overflow-y: scroll;
+    min-width: 250px;
+    min-height: 100px;
+}
+
+.good-title{
+    width: 80%;
+  min-height: 120px;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(88, 182, 44);
+  border-radius: 20px;
+  color: wheat;
+}

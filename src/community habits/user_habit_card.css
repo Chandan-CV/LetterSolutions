@@ -1,13 +1,18 @@
 .userhabitcard{
-    cursor: pointer;
     width: 80%;
     height: 80px;
     margin: 50px;
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    color: white;
+    background-color: rgb(47, 54, 146);
+    border-radius: 20px;
 }
 .title{
     font-size: 22pt;
+}
+.subtitle{
+    font-size: 18pt;
 }
