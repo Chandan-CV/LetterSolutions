@@ -9,6 +9,7 @@ import LoginScreen from "./AuthProcess/LoginScreen";
 import SignUpScreen from "./AuthProcess/SignUpScreen";
 import VerifyUser from "./User/VerifyUser";
 import Gradeid from "./Screens/Gradeid";
+import Community_habits from './community habits/community_habits';
 export const Context = React.createContext();
 function App() {
   const [user, setUser] = useState(null);
@@ -53,6 +54,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUpScreen />
+          </Route>
+          <Route path="/habit_screen">
+            <Community_habits/>
           </Route>
 
           <Route path="/:fieldvalue">{user ? <HomeStuff /> : <LoginScreen />}</Route>
