@@ -17,22 +17,24 @@ const HabitsCard = () => {
     <div className="habitCard">
       {data.map((item) => (
         <table className="table" key={item.id}>
-          <thead>
-            <tr>
-              <th>{item.habit_name}</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{item.user_names}</td>
-              <td>{item.status}</td>
-              <td />
-            </tr>
-          </tbody>
+        <div style={{display:"flex", justifyContent:"space-between"}}>
+        <thead>
+        <tr>
+        <th>{item.habit_name}</th>
+        <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+        <td>{item.user_names}</td>
+        <td>{item.status}</td>
+        <td />
+        </tr>
+        </tbody>
+        </div>
         </table>
-      ))}
-    </div>
+        ))}
+        </div>
   );
 };
 

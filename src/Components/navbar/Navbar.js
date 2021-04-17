@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect, useContext } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useParams } from "react-router-dom";
 import { Context } from "../../App";
 import { auth } from "../../Fire";
 import '../navbar/Navbar.css'
@@ -46,15 +46,13 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Header() {
+  const params = useParams();
+
   const user = useContext(Context);
   const [headersData, setHeadesData] = useState([
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label:"Community Habits",
-      href:"/communityhabits"
+      href:`/${params.fieldvalue}/communityhabits`
     },
     {
       label: "Timetable",
@@ -74,12 +72,8 @@ export default function Header() {
     
     setHeadesData([
       {
-        label: "Home",
-        href: "/",
-      },
-      {
         label:"Community Habits",
-        href:"/communityhabits"
+        href:`/${params.fieldvalue}/communityhabits`
       },
       {
         label: "Timetable",

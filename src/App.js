@@ -55,7 +55,7 @@ function App() {
           <Route path="/signup">
             <SignUpScreen />
           </Route>
-          <Route path="/habit_screen">
+          <Route path="/:fieldvalue/communityhabits">
             <Community_habits/>
           </Route>
 
