@@ -18,10 +18,9 @@ function SignUpScreen() {
                 {
                   name: name,
                   email:email,
-                  address:null,
-                  role:"user",
                   timeOfCreation: firebase.firestore.FieldValue.serverTimestamp(),
-                  continue:null
+                  id: user.user.uid
+               
                 }
             )
                 auth.currentUser.sendEmailVerification().catch((err)=>{console.log(err)});

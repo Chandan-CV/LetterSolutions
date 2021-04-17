@@ -1,0 +1,20 @@
+.NotesNaviOptions{
+display: flex;
+background-color: aquamarine;
+justify-content: space-around;
+}
+.navOp{
+    flex:1;
+    height: 300px;
+    background-color: aqua;
+    margin:20px  70px ;
+}
+
+@media(max-width:800px){
+    .NotesNaviOptions{
+        display: none;
+        flex-direction: column;
+    }.navOp{
+      display: none;
+    }
+}

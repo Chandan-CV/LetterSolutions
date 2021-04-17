@@ -5,6 +5,7 @@ import HabitsCard from "./habits_card";
 import Navbar from "../Components/navbar/Navbar";
 import { db, storage } from "../Fire";
 import firebase from "firebase";
+import { useParams } from "react-router";
 import {
   Button,
   Dialog,
@@ -21,6 +22,10 @@ const Community_habits = () => {
   const [add2, setadd2] = useState(false);
   const [users, setuser] = useState([]);
   const [newName, setName] = useState("");
+  
+
+const Community_habits = () => {
+  const params = useParams().fieldvalue;
   useEffect(async () => {
     await db
       .collection("classrooms")
@@ -217,6 +222,7 @@ const Community_habits = () => {
       </Dialog>
       
     </div>
+
   );
 };
 
