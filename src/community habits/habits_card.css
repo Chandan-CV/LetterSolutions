@@ -1,0 +1,24 @@
+.habitCard{
+    width: 80%;
+    height: fit-content;
+    margin: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+}
+.habitName{
+    font-size: 22pt;
+    padding-left: 20px;
+}
+.userName{
+    font-size: 18pt;
+    padding-left: 20px;
+}
+.table{
+    font-size: 18pt; 
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}

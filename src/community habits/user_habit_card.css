@@ -1,0 +1,13 @@
+.userhabitcard{
+    cursor: pointer;
+    width: 80%;
+    height: 80px;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.title{
+    font-size: 22pt;
+}

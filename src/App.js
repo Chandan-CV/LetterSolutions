@@ -1,14 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Community_habits from './community habits/community_habits';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-       <h1>lettersolutions</h1>
-      </header>
-    </div>
+    <Community_habits/>
   );
 }
 
