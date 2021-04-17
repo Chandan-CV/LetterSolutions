@@ -31,6 +31,17 @@ function App() {
     } else {
       return <Notes />;
     }
+  };  
+  const Gradestuff = () => {
+    if (user) {
+      if (user.emailVerified) {
+        return <Gradeid />;
+      } else {
+        return <VerifyUser />;
+      }
+    } else {
+      return <Gradeid />;
+    }
   };
 
   return (
@@ -45,7 +56,7 @@ function App() {
           </Route>
 
           <Route path="/:fieldvalue">{user ? <HomeStuff /> : <LoginScreen />}</Route>
-          <Route exact path="/"><Gradeid/></Route>
+          <Route exact path="/">{user?<Gradestuff/>:<LoginScreen/>}</Route>
         </Switch>
       </Router>
     </Context.Provider>
