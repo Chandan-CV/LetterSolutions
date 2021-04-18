@@ -12,6 +12,7 @@
   background-color: crimson;
   border-radius: 20px;
   color: wheat;
+  cursor: pointer;
 }
 
 .habitCard {
@@ -22,8 +23,9 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  background-color: #37ecd4;
+  background-color: hsl(172, 83%, 57%);
   border-radius: 20px;
+ 
 }
 .habitName {
   font-size: 22pt;
@@ -63,6 +65,7 @@
   color: white;
   background-color: rgb(50, 61, 219);
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .dialogContent{
@@ -82,4 +85,5 @@
   background-color: rgb(88, 182, 44);
   border-radius: 20px;
   color: wheat;
+  cursor: pointer;
 }

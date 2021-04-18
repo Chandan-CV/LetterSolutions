@@ -1,16 +1,21 @@
 import { Card, Checkbox } from "@material-ui/core";
 import { CheckBox } from "@material-ui/icons";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../community habits/user_habit_card.css";
 import { db } from "../Fire";
 import firebase from "firebase";
+import { useParams } from "react-router";
+import { Context } from "../App";
+import { reload } from "./community_habits";
 
 const UserHabitCard = () => {
+  const params = useParams().fieldvalue;
+  const user = useContext(Context);
   const [habits, setHabit] = useState([]);
   useEffect(async () => {
     await db
       .collection("classrooms")
-      .doc("N6UITxdvjwLVUsNFTLNL")
+      .doc(params)
       .collection("habits")
       .get()
       .then((resp) => {
@@ -26,7 +31,7 @@ const UserHabitCard = () => {
       {habits.map((item) => (
         <div>
           {(() => {
-            if (item.incomplete.indexOf("Ram") > -1) {
+            if (item.incomplete.indexOf(user.displayName) > -1) {
               return (
                 <div className="userhabitcard">
                   <p className="title">{item.habit_name}</p>
@@ -35,17 +40,17 @@ const UserHabitCard = () => {
                     onChange={async () => {
                       await db
                         .collection("classrooms")
-                        .doc("N6UITxdvjwLVUsNFTLNL")
+                        .doc(params)
                         .collection("habits")
                         .doc(item.id)
                         .update({
                           completed: firebase.firestore.FieldValue.arrayUnion(
-                            "Ram"
+                            user.displayName
                           ),
                           incomplete: firebase.firestore.FieldValue.arrayRemove(
-                            "Ram"
+                            user.displayName
                           ),
-                        });
+                        }).then(()=>{reload()});
                     }}
                   ></Checkbox>
                 </div>

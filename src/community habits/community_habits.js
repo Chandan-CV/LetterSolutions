@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import UserHabitCard from "../community habits/user_habit_card";
 import "../community habits/community_habits.css";
 import HabitsCard from "./habits_card";
@@ -14,6 +14,11 @@ import {
   Input,
   TextField,
 } from "@material-ui/core";
+import { Context } from "../App";
+
+export const reload =()=>{
+  window.location.reload();
+}
 
 const Community_habits = () => {
   const [open, setOpen] = useState(false);
@@ -22,14 +27,13 @@ const Community_habits = () => {
   const [add2, setadd2] = useState(false);
   const [users, setuser] = useState([]);
   const [newName, setName] = useState("");
-  
-
-const Community_habits = () => {
   const params = useParams().fieldvalue;
+  const user = useContext(Context);
+
   useEffect(async () => {
     await db
       .collection("classrooms")
-      .doc("N6UITxdvjwLVUsNFTLNL")
+      .doc(params)
       .collection("habits")
       .get()
       .then((resp) => {
@@ -69,14 +73,14 @@ const Community_habits = () => {
                       onClick={async () => {
                         await db
                           .collection("classrooms")
-                          .doc("N6UITxdvjwLVUsNFTLNL")
+                          .doc(params)
                           .collection("habits")
                           .doc(item.id)
                           .update({
                             incomplete: firebase.firestore.FieldValue.arrayUnion(
-                              "This is the added user"
+                             user.displayName
                             ),
-                          });
+                          }).then(()=>{reload()});
                       }}
                     >
                       {item.habit_name}
@@ -106,14 +110,14 @@ const Community_habits = () => {
                       onClick={async () => {
                         await db
                           .collection("classrooms")
-                          .doc("N6UITxdvjwLVUsNFTLNL")
+                          .doc(params)
                           .collection("habits")
                           .doc(item.id)
                           .update({
                             incomplete: firebase.firestore.FieldValue.arrayUnion(
-                              "This is the added user"
+                              user.displayName
                             ),
-                          });
+                          }).then(()=>{reload()});
                       }}
                     >
                       {item.habit_name}
@@ -148,27 +152,27 @@ const Community_habits = () => {
           onClick={async () => {
             await db
               .collection("classrooms")
-              .doc("N6UITxdvjwLVUsNFTLNL")
+              .doc(params)
               .collection("habits")
               .add({
                 habit_name: newName,
                 type: true,
                 completed: [],
-                incomplete: ["Ram"],
+                incomplete: [user.displayName],
               })
               .then(async function (docRef) {
                 await db
                   .collection("classrooms")
-                  .doc("N6UITxdvjwLVUsNFTLNL")
+                  .doc(params)
                   .collection("habits")
                   .doc(docRef.id)
                   .update({
                     habit_name: newName,
                     type: true,
                     completed: [],
-                    incomplete: ["Ram"],
+                    incomplete: [user.displayName],
                     id: docRef.id,
-                  });
+                  }).then(()=>reload());
               });
           }}
         >
@@ -193,27 +197,27 @@ const Community_habits = () => {
           onClick={async () => {
             await db
               .collection("classrooms")
-              .doc("N6UITxdvjwLVUsNFTLNL")
+              .doc(params)
               .collection("habits")
               .add({
                 habit_name: newName,
                 type: true,
                 completed: [],
-                incomplete: ["Ram"],
+                incomplete: [user.displayName],
               })
               .then(async function (docRef) {
                 await db
                   .collection("classrooms")
-                  .doc("N6UITxdvjwLVUsNFTLNL")
+                  .doc(params)
                   .collection("habits")
                   .doc(docRef.id)
                   .update({
                     habit_name: newName,
                     type: false,
                     completed: [],
-                    incomplete: ["Ram"],
+                    incomplete: [user.displayName],
                     id: docRef.id,
-                  });
+                  }).then(()=>{reload()});
               });
           }}
         >

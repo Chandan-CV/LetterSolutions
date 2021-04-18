@@ -1,11 +1,13 @@
 import { Card, Checkbox } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import "../community habits/habits_card.css";
 import { db } from "../Fire";
 const HabitsCard = () => {
+  const params = useParams().fieldvalue;
   const [data, setData] = useState([]);
   useEffect(async() => {
-    await db.collection('classrooms').doc('N6UITxdvjwLVUsNFTLNL').collection('habits').get().then((resp)=>{
+    await db.collection('classrooms').doc(params).collection('habits').get().then((resp)=>{
       setData(resp.docs.map((doc)=> {
         return doc.data();
       }))
