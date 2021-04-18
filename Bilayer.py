@@ -3,6 +3,17 @@ from pdf2image import convert_from_path
 import glob,os
 import re
 import textractor
+import urllib.request
+
+
+def download_file(download_url, filename):
+    
+    response = urllib.request.urlopen(download_url)
+
+    file = open(filename + ".pdf", 'wb')
+    file.write(response.read())
+    file.close()
+
 
 def pdf_to_image(pdf_path):    
     
@@ -44,7 +55,12 @@ def txt_to_pdf(dir_path):
     return path
 
 
-def convert(pdf_path):
+def convert(pdf_url,filename):
+    
+    pdf_path = filename + ".pdf"
+
+    download_file(pdf_url,filename)
+
     directory = pdf_path[:-4] + '/'
     
     pdf_to_image(pdf_path)
@@ -58,4 +74,4 @@ def convert(pdf_path):
 
     return output_pdf
 
-#convert("C:/Users/YOrox/OneDrive/Desktop/Studies/English/lithika_English.pdf")
+#convert('https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf', 'Sample')
