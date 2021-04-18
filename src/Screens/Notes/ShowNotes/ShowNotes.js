@@ -36,19 +36,20 @@ function ShowNotes() {
         }
    }
     return (
-        <div>
+        <div >
         <center>
         <div style={{width:"70%"}}>
         <SearchBar value={SearchTerm} onChange={(e)=>setSearchTerm(e)} onRequestSearch={()=>{handleSearch()}} />
         </div>
         </center>
-       
+        <center>
         <div style={{display:"flex", flexWrap:"wrap"}}>
         
         {data.map((elementData)=>{
             return <NotesCard data={elementData}/>
         })}
         </div>
+        </center>
 
         </div>
         )

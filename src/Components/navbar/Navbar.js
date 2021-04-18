@@ -87,6 +87,10 @@ export default function Header() {
       {
         label: "Stats",
         href: `/${params.fieldvalue}/timetable`,
+      },  
+       {
+        label: "Leave Class",
+        href: "/",
       },
    
       {

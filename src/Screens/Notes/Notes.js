@@ -136,7 +136,9 @@ function Notes() {
           </Button>
         </center>
       </div>
+   
       <ShowNotes />
+      
 
       {/* this is the dialog box for uploading stuff */}
       <Dialog open={open} onClose={() => setOpen(false)}>
