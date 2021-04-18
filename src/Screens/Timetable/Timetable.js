@@ -41,7 +41,9 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
         
         const Predict = ()=>{
           if(desiredScore>0&&desiredScore<=100){
-
+              for (var i=0 ; i<stat.length; i++){
+                console.log(stat[i])
+              }
           }
           else{
             alert("please mention a right score")
@@ -96,7 +98,8 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
           width={4}
          
         />
-          {/* TODO: add the projected marks and give out the predicted time*/}
+        {/* TODO: add the projected marks and give out the predicted time*/}
+        {/*
           <div className="predict">
           <p>please enter the predicted score, our AI will give you the predicted sleep and study duration</p>
           <TextField
@@ -113,7 +116,7 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
           pridict the durations
           </Button>
           <p>predicted durations : {JSON.stringify(predictedDuration)}</p>
-          </div>
+          </div>*/}
 
         </div>
       </div>

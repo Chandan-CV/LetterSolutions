@@ -3,6 +3,7 @@ import { Button, TextField } from "@material-ui/core";
 import "./LoginScreen.css";
 import { auth, signInWithGoogle } from "../Fire";
 import { useHistory } from "react-router";
+import logo from '../logo.png'
 function LoginScreen() {
   const history = useHistory();
   const [email, setEmail] = useState("");
@@ -21,7 +22,11 @@ function LoginScreen() {
   };
   return (
     <div>
-    <div className="LoginMain">
+    <div className="LoginMain" style={{display:"flex", flexDirection:"column"}}>
+    <img
+    style={{height:150, marginBottom:30}}
+    src={logo}
+    />
     <div className="LoginCard">
     <div className="header">
     <p className="font">Welcome Back</p>

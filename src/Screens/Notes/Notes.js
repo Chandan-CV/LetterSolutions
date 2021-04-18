@@ -16,6 +16,7 @@ import { db, storage } from "../../Fire";
 import "./Notes.css";
 import ShowNotes from "./ShowNotes/ShowNotes";
 import firebase from "firebase";
+
 function Notes() {
   const user = useContext(Context);
   const history = useHistory();
@@ -94,28 +95,7 @@ function Notes() {
     }
   };
 
-  const postIt = async () => {
-    await fetch({
-      method: "POST",
-      url: "http://nikhiljsh12.pythonanywhere.com/notes/post",
-      headers: {
-        "X-CSRFToken": document.cookie.split("=")[1],
-        "X-Requested-With": "XMLHttpRequest",
-        "Content-Type": "application/json",
-      },
-      data: {check:"hello this is chandan here"},
-    }).then((res) => setResponse(res.json()));
-  };
-
-  useEffect(async () => {
-    await fetch("http://nikhiljsh12.pythonanywhere.com/notes/data/").then(
-      (response) => {
-        console.log(response.json());
-      }
-    );
-    await postIt();
-  }, []);
-
+ 
   return (
     <div>
       <Navbar />
@@ -129,7 +109,7 @@ function Notes() {
           <h4 style = {{color : 'gray'}}>Class ID : {params.fieldvalue}</h4>
           </center>
       </div>
-      <div>
+      <div style={{marginTop:30, marginBottom:30}}>
         <center>
           <Button variant="outlined" onClick={() => setOpen(true)}>
             Upload Notes

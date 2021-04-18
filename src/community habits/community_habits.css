@@ -2,8 +2,8 @@
   width: 100%;
 }
 .add-button {
-  width: 80%;
-  min-height: 120px;
+  width: 60%;
+  min-height: 100px;
   margin: 50px;
   display: flex;
   align-items: center;
@@ -16,8 +16,8 @@
 }
 
 .habitCard {
-  width: 80%;
-  min-height: 120px;
+  width: 60%;
+  min-height: fit-content;
   margin: 50px;
   display: flex;
   align-items: center;
@@ -75,8 +75,8 @@
 }
 
 .good-title{
-    width: 80%;
-  min-height: 120px;
+    width: 60%;
+  min-height: 100px;
   margin: 50px;
   display: flex;
   align-items: center;
