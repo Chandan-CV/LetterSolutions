@@ -34,12 +34,15 @@ function Gradeid() {
             onClick={()=>{handlesubmit()}}
          >submit</Button>
          
+         
          <div>
+         <center>
          <Button
          onClick={()=>{auth.signOut().then(()=>{history.push("/"); window.location.reload()});}}
          >
          logout
          </Button>
+         </center>
          </div>
 
          

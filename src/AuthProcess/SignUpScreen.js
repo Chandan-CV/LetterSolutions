@@ -22,6 +22,8 @@ function SignUpScreen() {
                   id: user.user.uid
                
                 }
+            ).then(()=>
+            user.user.updateProfile({displayName:name})
             )
                 auth.currentUser.sendEmailVerification().catch((err)=>{console.log(err)});
                 history.push("/")

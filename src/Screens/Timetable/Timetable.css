@@ -24,3 +24,9 @@
 .StatInput{
   padding: 30px;
 }
+
+.rightHandSide{
+  width: 100%;
+  
+  background-color: aqua;
+}

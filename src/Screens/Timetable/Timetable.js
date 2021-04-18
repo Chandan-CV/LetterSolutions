@@ -1,11 +1,13 @@
 import { Button, Dialog, DialogTitle, TextField } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
 import React, { useContext, useEffect, useState } from "react";
+import { Line } from "react-chartjs-2";
+
+
 import { Context } from "../../App";
 import Navbar from "../../Components/navbar/Navbar";
 import { db } from "../../Fire";
 import "../Timetable/Timetable.css";
-import TakeStat from "./TakeStat";
 function Timetable() {
     const user = useContext(Context);
   const [stat, setStat] = useState([]);
@@ -13,7 +15,6 @@ function Timetable() {
   const [sleep, setSleep] = useState(null);
   const [time, setTime] = useState(null);
   const [open, setOpen] = useState(false);
-
 
 
   useEffect(async()=>{
@@ -30,7 +31,8 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
            stats: [...stat,{
                 marks:marks,
                 sleep:sleep,
-                duration:time
+                duration:time,
+                index:stat.length
             }]
         }
         
@@ -69,8 +71,24 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
 
         {/* Right hand side */}
         <div className="rightHandSide">
-          {/* TODO: add a chart representing the student performance */}
-        
+          <Line
+          data={{
+            labels: stat.map((element)=>element.index),
+            datasets: [
+              {
+                label: 'marks',
+                data: stat.map((element)=>element.marks),
+                borderWidth: 1,
+                backgroundColor: 'rgb(255, 139, 139)',
+                        borderColor: 'red',
+              },
+       
+            ],
+          }}
+          height={2}
+          width={4}
+         
+        />
           {/* TODO: add the projected marks and give out the predicted time*/}
         </div>
       </div>
