@@ -9,7 +9,8 @@ import LoginScreen from "./AuthProcess/LoginScreen";
 import SignUpScreen from "./AuthProcess/SignUpScreen";
 import VerifyUser from "./User/VerifyUser";
 import Gradeid from "./Screens/Gradeid";
-import Community_habits from './community habits/community_habits';
+import Community_habits from "./community habits/community_habits";
+import Timetable from "./Screens/Timetable/Timetable";
 export const Context = React.createContext();
 function App() {
   const [user, setUser] = useState(null);
@@ -32,7 +33,7 @@ function App() {
     } else {
       return <Notes />;
     }
-  };  
+  };
   const Gradestuff = () => {
     if (user) {
       if (user.emailVerified) {
@@ -55,12 +56,20 @@ function App() {
           <Route path="/signup">
             <SignUpScreen />
           </Route>
+
           <Route path="/:fieldvalue/communityhabits">
-            <Community_habits/>
+            <Community_habits />
+          </Route>
+          <Route path="/:fieldvalue/timetable">
+            <Timetable />
           </Route>
 
-          <Route path="/:fieldvalue">{user ? <HomeStuff /> : <LoginScreen />}</Route>
-          <Route exact path="/">{user?<Gradestuff/>:<LoginScreen/>}</Route>
+          <Route path="/:fieldvalue">
+            {user ? <HomeStuff /> : <LoginScreen />}
+          </Route>
+          <Route exact path="/">
+            {user ? <Gradestuff /> : <LoginScreen />}
+          </Route>
         </Switch>
       </Router>
     </Context.Provider>

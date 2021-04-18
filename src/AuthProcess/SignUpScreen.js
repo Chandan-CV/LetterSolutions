@@ -87,14 +87,17 @@ function SignUpScreen() {
               variant="outlined"
               >Sign up</Button>
             </div>
-            <p style={{ alignSelf: "center", marginTop: 20, fontSize: 16 }}>OR</p>
+            
             <div
+            style={{display:"flex",flexDirection:"column"}}
               className="googleLogin"
               onClick={() => {
-                signInWithGoogle(history);
+               history.push("/login")
               }}
             >
-              <Button variant="outlined">Continue with google</Button>
+            <p>Already a user?</p>
+            <p className="signUpText">login</p>
+            
             </div>
           </div>
         </div>

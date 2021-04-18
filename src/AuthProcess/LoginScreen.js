@@ -7,10 +7,12 @@ function LoginScreen() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const login = () => {
-    auth
+  const login = async() => {
+
+  await  auth
       .signInWithEmailAndPassword(email, pass)
-      .then(() => {
+      .then((res) => {
+      
         history.push("/");
       })
       .catch((err) => {
@@ -19,7 +21,6 @@ function LoginScreen() {
   };
   return (
     <div>
-    <form>
     <div className="LoginMain">
     <div className="LoginCard">
     <div className="header">
@@ -48,31 +49,28 @@ function LoginScreen() {
     }}
     />
     </div>
-    <p 
-    style={{color:"blue",alignSelf:"center", marginTop:10,cursor:"pointer"}}
-    onClick={()=>{history.push("/recovery")}}
-    >forgot password?</p>
+   
     
     <div className="button">
     <Button
     type="submit"
     variant="outlined"
     onClick={() => {
-      login();
+      login()
     }}
     >
     Login
     </Button>
     </div>
-    <p style={{ alignSelf: "center", marginTop: 20, fontSize: 16 }}>OR</p>
-    <div
+  
+    {/*<div
     className="googleLogin"
     onClick={() => {
       signInWithGoogle(history);
     }}
     >
     <Button variant="outlined">Continue with google</Button>
-    </div>
+  </div>*/}
     <div className="signUp">
     <p>Don't have an account?</p>
     
@@ -87,7 +85,7 @@ function LoginScreen() {
     </div>
     </div>
     </div>
-    </form>
+  
     </div>
   );
 }

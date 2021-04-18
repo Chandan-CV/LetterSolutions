@@ -1,0 +1,26 @@
+.StatsOutercontainer{
+    display: flex;
+    flex-direction: row;
+}
+.addicon{
+    background-color: gray;
+    width: fit-content;
+    border-radius: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+.MarksDiv{
+    width: 30%;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  padding:30px;
+  border-radius: 20px;
+  margin-left: 20px
+  ;
+}
+
+.StatInput{
+  padding: 30px;
+}

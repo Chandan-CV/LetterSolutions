@@ -1,7 +1,7 @@
 import { Button, TextField } from '@material-ui/core'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import { db } from '../Fire';
+import { auth, db } from '../Fire';
 
 function Gradeid() {
         const history = useHistory();
@@ -33,6 +33,16 @@ function Gradeid() {
           style={{marginTop:20}}
             onClick={()=>{handlesubmit()}}
          >submit</Button>
+         
+         <div>
+         <Button
+         onClick={()=>{auth.signOut().then(()=>{history.push("/"); window.location.reload()});}}
+         >
+         logout
+         </Button>
+         </div>
+
+         
          </div>   
         </div>
     )

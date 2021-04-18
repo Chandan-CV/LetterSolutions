@@ -15,6 +15,7 @@ import {
   TextField,
 } from "@material-ui/core";
 import { Context } from "../App";
+import Disqus, { DiscussionEmbed } from "disqus-react";
 
 export const reload =()=>{
   window.location.reload();
@@ -225,6 +226,23 @@ const Community_habits = () => {
         </Button>
       </Dialog>
       
+
+
+<div style={{marginTop:300}}>
+<Disqus.DiscussionEmbed
+shortname='lettersolutions'
+config={
+  {
+    url: "http://localhost:3000" ,
+    identifier: params,
+    title: "habits",	
+  }
+}
+/>
+</div>
+          
+
+
     </div>
 
   );

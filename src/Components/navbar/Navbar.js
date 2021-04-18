@@ -51,12 +51,16 @@ export default function Header() {
   const user = useContext(Context);
   const [headersData, setHeadesData] = useState([
     {
+      label:"Notes",
+      href:`/${params.fieldvalue}`
+    },
+    {
       label:"Community Habits",
       href:`/${params.fieldvalue}/communityhabits`
     },
     {
-      label: "Timetable",
-      href: "/timetable",
+      label: "Stats",
+      href: `/${params.fieldvalue}/timetable`,
     },
  
     {
@@ -72,12 +76,17 @@ export default function Header() {
     
     setHeadesData([
       {
+        label:"Notes",
+        href:`/${params.fieldvalue}`
+      },
+      
+      {
         label:"Community Habits",
         href:`/${params.fieldvalue}/communityhabits`
       },
       {
-        label: "Timetable",
-        href: "/timetable",
+        label: "Stats",
+        href: `/${params.fieldvalue}/timetable`,
       },
    
       {
