@@ -126,7 +126,8 @@ function Notes() {
         <center>
           <h1>Notes</h1>
           <h3>{data ? data.name : null}</h3>
-        </center>
+          <h4 style = {{color : 'gray'}}>Class ID : {params.fieldvalue}</h4>
+          </center>
       </div>
       <div>
         <center>
