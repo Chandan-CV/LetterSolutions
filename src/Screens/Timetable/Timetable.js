@@ -15,8 +15,8 @@ function Timetable() {
   const [sleep, setSleep] = useState(null);
   const [time, setTime] = useState(null);
   const [open, setOpen] = useState(false);
-
-
+  const [desiredScore,setDesiredScore] = useState(null);
+  const[predictedDuration, setPredictedDuration] = useState();
   useEffect(async()=>{
       if(user)
 await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
@@ -39,7 +39,14 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
             ).then(()=>setOpen(false))
         }
         
+        const Predict = ()=>{
+          if(desiredScore>0&&desiredScore<=100){
 
+          }
+          else{
+            alert("please mention a right score")
+          }
+        }
 
   return (
     <div>
@@ -90,6 +97,24 @@ await db.collection("Users").doc(user.uid).onSnapshot((snap)=>{
          
         />
           {/* TODO: add the projected marks and give out the predicted time*/}
+          <div className="predict">
+          <p>please enter the predicted score, our AI will give you the predicted sleep and study duration</p>
+          <TextField
+          variant="outlined"
+          label="enter desired score"
+          type="number"
+          value={desiredScore}
+          onChange={(e)=>{setDesiredScore(e.target.value)}}
+          />
+          <Button 
+          variant="outlined"
+          onClick={()=>{Predict()}}
+          >
+          pridict the durations
+          </Button>
+          <p>predicted durations : {JSON.stringify(predictedDuration)}</p>
+          </div>
+
         </div>
       </div>
 

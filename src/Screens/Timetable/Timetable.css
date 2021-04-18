@@ -28,5 +28,14 @@
 .rightHandSide{
   width: 100%;
   
-  background-color: aqua;
+
+}
+.predict{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: lightgray;
+  margin:20px 40px;
+  border-radius: 10px;
 }

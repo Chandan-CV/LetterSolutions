@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { auth } from "./Fire";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, HashRouter, BrowserRouter as Router } from "react-router-dom";
 import Notes from "./Screens/Notes/Notes";
 import LoginScreen from "./AuthProcess/LoginScreen";
 import SignUpScreen from "./AuthProcess/SignUpScreen";
@@ -48,31 +48,33 @@ function App() {
 
   return (
     <Context.Provider value={user}>
-      <Router>
-        <Switch>
-          <Route path="/login">
-            <LoginScreen />
-          </Route>
-          <Route path="/signup">
-            <SignUpScreen />
-          </Route>
-
-          <Route path="/:fieldvalue/communityhabits">
+    <Router>
+  
+    <Switch>
+    <Route path="/login">
+    <LoginScreen />
+    </Route>
+    <Route path="/signup">
+    <SignUpScreen />
+    </Route>
+    
+    <Route path="/:fieldvalue/communityhabits">
             <Community_habits />
-          </Route>
-          <Route path="/:fieldvalue/timetable">
+            </Route>
+            <Route path="/:fieldvalue/timetable">
             <Timetable />
-          </Route>
-
-          <Route path="/:fieldvalue">
+            </Route>
+            
+            <Route path="/:fieldvalue">
             {user ? <HomeStuff /> : <LoginScreen />}
-          </Route>
-          <Route exact path="/">
+            </Route>
+            <Route exact path="/">
             {user ? <Gradestuff /> : <LoginScreen />}
-          </Route>
-        </Switch>
-      </Router>
-    </Context.Provider>
+            </Route>
+            </Switch>
+        
+            </Router>
+            </Context.Provider>
   );
 }
 
